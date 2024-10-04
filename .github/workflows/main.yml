@@ -1,0 +1,19 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: alpine-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run docker-compose
+        uses: VAGRAMCHIC/compose-action@v2.0.1
+        with:
+          compose-file: "./docker-compose.yml"
+
+      - name: Execute tests in the running services
+        run: |
+          docker-compose up -d 
