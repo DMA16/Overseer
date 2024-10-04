@@ -1,0 +1,9 @@
+services:
+  overseer:
+    container_name: overseer_app
+    build: docker/
+    network_mode: "host"
+    volumes:
+      - /root/Overseer/data/:/code/data/
+
+
