@@ -21,8 +21,8 @@ def read_conf(path:str)->dict:
         return json.loads(conf_file.read())
 
 
-config = read_conf("env.json")
-swearings=read_sw("swearings.txt")
+config = read_conf("data/env.json")
+swearings=read_sw("data/swearings.txt")
 bot = telebot.TeleBot(token=config["TG_TOKEN"])
 
 @bot.message_handler(commands=['start'])
