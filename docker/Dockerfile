@@ -14,6 +14,7 @@ RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./bot.py /code/
 
+COPY ./data /code/
  
 CMD ["python", "bot.py"]
 
