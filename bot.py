@@ -12,7 +12,7 @@ logging.basicConfig(
 
 
 def read_sw(path:str)->dict:
-    with open(path, "r") as sw_file:
+    with open(path, "r", encoding="utf8") as sw_file:
         return sw_file.readlines()
 
 
@@ -46,5 +46,4 @@ def gay_voice(message):
         bot.reply_to(message, 'Yoooo GANGSTER!!')
         
 
-#bot.polling()
 bot.infinity_polling()
