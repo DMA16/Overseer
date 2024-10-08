@@ -15,4 +15,4 @@ def __read_env__(path:str)->dict:
 env = __read_env__("data/env.json")
 tg_token = env["TG_TOKEN"]
 swearings = __read_sw__("data/swearings.txt")
-chat_id = env["CHAT_ID"]
+chat_id = int(env["CHAT_ID"])
