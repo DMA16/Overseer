@@ -1,29 +1,14 @@
 import telebot
-import json
 import random
 import logging
-#from config import TOKEN
-
+import get_data
 
 logging.basicConfig(
     format=u'[%(asctime)s] %(levelname)s %(message)s',
     level=logging.INFO
 )
 
-
-def read_sw(path:str)->dict:
-    with open(path, "r", encoding="utf8") as sw_file:
-        return sw_file.readlines()
-
-
-def read_conf(path:str)->dict:
-    with open(path,"r") as conf_file:
-        return json.loads(conf_file.read())
-
-
-config = read_conf("data/env.json")
-swearings=read_sw("data/swearings.txt")
-bot = telebot.TeleBot(token=config["TG_TOKEN"])
+bot = telebot.TeleBot(token=get_data.config)
 
 
 @bot.message_handler(commands=['start'])
@@ -35,7 +20,7 @@ def start_message(message):
 def gay_voice(message):
     logging.info(message.voice.duration)
     if int(message.voice.duration) > 1:
-        bot.reply_to(message, random.choice(swearings))
+        bot.reply_to(message, random.choice(get_data.swearings))
     else:
         bot.reply_to(message, 'Yoooo GANGSTER!!')
 
