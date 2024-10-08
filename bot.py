@@ -25,16 +25,10 @@ config = read_conf("data/env.json")
 swearings=read_sw("data/swearings.txt")
 bot = telebot.TeleBot(token=config["TG_TOKEN"])
 
+
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, 'Здравствуйте шлюшки!')
-
-
-#@bot.message_handler(func = lambda msg:msg.text!="")
-@bot.message_handler()
-def faggot_detector(message):
-    logging.info(message)
-    bot.reply_to(message, 'Ты гей!')
 
 
 @bot.message_handler(content_types=['voice'])
@@ -44,6 +38,6 @@ def gay_voice(message):
         bot.reply_to(message, random.choice(swearings))
     else:
         bot.reply_to(message, 'Yoooo GANGSTER!!')
-        
+
 
 bot.infinity_polling()
