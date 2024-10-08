@@ -8,7 +8,7 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-bot = telebot.TeleBot(token=get_data.config)
+bot = telebot.TeleBot(token=get_data.tg_token)
 
 
 @bot.message_handler(commands=['start'])
